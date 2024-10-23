@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+import sys
+
+def rstrip(s):
+	while s and (s[-1] == '\r' or s[-1] == '\n'): s = s[:-1]
+	return s
+encode1_ans = 'cp950'
+encode2 = 'cp950'
+fa, fb = open(sys.argv[2],encoding=encode1_ans), open(sys.argv[3],encoding=encode2)
+while True:
+	la, lb = fa.readline(), fb.readline()
+	if la:
+		if not lb or rstrip(la) != rstrip(lb): quit(1)
+	elif lb:
+		quit(1)
+	else:
+		break
+
+
